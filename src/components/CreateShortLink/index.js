@@ -50,6 +50,7 @@ const createHash = itemCount => {
 
 };
 
+
 class CreateShortLink extends React.Component {
     constructor(props) {
         super(props);
@@ -63,6 +64,7 @@ class CreateShortLink extends React.Component {
     createShortLink = async () => {
         const linkCountQuery = await this.props.client.query({
             query: GET_LINK_COUNT,
+            fetchPolicy: 'network-only',
         });
 
         const linkCount = linkCountQuery.data.links.count;
@@ -78,6 +80,8 @@ class CreateShortLink extends React.Component {
             }
         });
     };
+
+
 
     render() {
         return (

@@ -15,7 +15,41 @@ const GET_ALL_LINKS = gql`
     }
 `;
 
+const LINKS_SUBSCRIPTION = gql`
+    subscription NewLinkCreatedSubscription {
+        Link(filter: {mutation_in: [CREATED]}) {
+            node {
+                id
+                url
+                description
+                hash
+            }
+        }
+    }
+`;
+
 class LinkList extends React.Component {
+
+
+    componentDidMount() {
+        this.props.allLinksQuery.subscribeToMore({
+            document: LINKS_SUBSCRIPTION,
+            updateQuery: (prev, { subscriptionData }) => {
+                const newLinks = [
+                    ...prev.allLinks,
+                    subscriptionData.data.Link.node,
+                ];
+
+                const result = {
+                    ...prev,
+                    allLinks: newLinks,
+                };
+
+                return result;
+            }
+        });
+    }
+
     render() {
 
         if (this.props.allLinksQuery && this.props.allLinksQuery.loading) {
