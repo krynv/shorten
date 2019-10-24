@@ -17,7 +17,7 @@ class CreateShortLink extends React.Component {
 
         this.state = {
             description: '',
-            url: '',
+            url: ''
         };
     }
 

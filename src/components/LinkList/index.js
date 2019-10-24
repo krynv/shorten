@@ -17,12 +17,12 @@ const GET_ALL_LINKS = gql`
 
 const LINKS_SUBSCRIPTION = gql`
     subscription NewLinkCreatedSubscription {
-        Link(filter: {mutation_in: [CREATED]}) {
+        Link(filter: { mutation_in: [UPDATED] }) {
             node {
                 id
-                hash
                 url
                 description
+                hash
             }
         }
     }
