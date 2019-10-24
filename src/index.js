@@ -10,7 +10,7 @@ import { HttpLink } from 'apollo-link-http';
 import { getMainDefinition } from 'apollo-utilities';
 
 import './index.css';
-import App from './components/App';
+import AppRouter from './components/AppRouter';
 import * as serviceWorker from './serviceWorker';
 
 const wsLink = new WebSocketLink({
@@ -46,8 +46,8 @@ const withApolloProvider = Component => (
 );
 
 ReactDOM.render(
-    withApolloProvider(<App />),
-    document.getElementById('root')
+    withApolloProvider(<AppRouter />),
+    document.getElementById('root'),
 );
 
 // If you want your app to work offline and load faster, you can change

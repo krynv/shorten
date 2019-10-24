@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import './Home.css';
 
 import LinkList from '../LinkList';
 import CreateShortLink from '../CreateShortLink';
 
-class App extends React.Component {
+class Home extends React.Component {
     render() {
         return (
             <div>
@@ -21,4 +21,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default Home;
