@@ -29,12 +29,11 @@ const LINKS_SUBSCRIPTION = gql`
 `;
 
 class LinkList extends React.Component {
-
-
     componentDidMount() {
         this.props.allLinksQuery.subscribeToMore({
             document: LINKS_SUBSCRIPTION,
             updateQuery: (prev, { subscriptionData }) => {
+
                 const newLinks = [
                     ...prev.allLinks,
                     subscriptionData.data.Link.node,

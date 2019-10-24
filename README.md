@@ -20,7 +20,6 @@ query links {
         id
         url
         description
-        hash
     }
 }
 ```
