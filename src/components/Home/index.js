@@ -9,12 +9,12 @@ class Home extends React.Component {
         return (
             <div>
                 <div>
-                    <h2>All Links</h2>
-                    <LinkList />
-                </div>
-                <div>
                     <h2>Create a short URL</h2>
                     <CreateShortLink />
+                </div>
+                <div>
+                    <h2>All Links</h2>
+                    <LinkList />
                 </div>
             </div>
         );
