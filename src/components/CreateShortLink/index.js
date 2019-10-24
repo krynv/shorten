@@ -14,6 +14,7 @@ const CREATE_SHORT_LINK_MUTATION = gql`
 class CreateShortLink extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             description: '',
             url: '',
@@ -22,10 +23,11 @@ class CreateShortLink extends React.Component {
 
     createShortLink = async () => {
         const { url, description } = this.state;
+
         await this.props.createShortLinkMutation({
             variables: {
                 url,
-                description,
+                description
             },
         });
     };
@@ -38,8 +40,10 @@ class CreateShortLink extends React.Component {
                     type="text"
                     value={this.state.url}
                     placeholder="URL"
-                    onChange={e => this.setState({ url: e.target.value })}
+                    onChange={e =>
+                        this.setState({ url: e.target.value })}
                 />
+
                 <input
                     id="description"
                     type="text"

@@ -8,9 +8,9 @@ const GET_ALL_LINKS = gql`
     query links {
         allLinks {
             id
+            hash
             url
             description
-            hash
         }
     }
 `;
@@ -20,9 +20,9 @@ const LINKS_SUBSCRIPTION = gql`
         Link(filter: {mutation_in: [CREATED]}) {
             node {
                 id
+                hash
                 url
                 description
-                hash
             }
         }
     }
@@ -30,10 +30,10 @@ const LINKS_SUBSCRIPTION = gql`
 
 class LinkList extends React.Component {
     componentDidMount() {
+
         this.props.allLinksQuery.subscribeToMore({
             document: LINKS_SUBSCRIPTION,
             updateQuery: (prev, { subscriptionData }) => {
-
                 const newLinks = [
                     ...prev.allLinks,
                     subscriptionData.data.Link.node,
@@ -47,6 +47,8 @@ class LinkList extends React.Component {
                 return result;
             }
         });
+
+
     }
 
     render() {
