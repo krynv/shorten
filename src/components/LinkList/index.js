@@ -11,6 +11,9 @@ const GET_ALL_LINKS = gql`
             hash
             url
             description
+            stats {
+                clicks
+            }
         }
     }
 `;
