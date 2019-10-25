@@ -66,10 +66,10 @@ const ShortLinkRedirect = ({
     } else {
 
         let currentClicks = (linkInfo.stats && linkInfo.stats.clicks) || 0;
-        // Increment the click count
+        // increment the click count
         currentClicks++;
 
-        // Update the click count.
+        // update the click count, passing in the link ID
         updateClickCount({
             variables: {
                 id: linkInfo.id,
