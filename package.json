@@ -8,7 +8,7 @@
     "apollo-client": "^2.6.8",
     "apollo-link": "^1.2.13",
     "apollo-link-http": "^1.5.16",
-    "apollo-link-ws": "^1.0.19",
+    "apollo-link-ws": "^1.0.20",
     "graphcool-lib": "^0.1.4",
     "graphql": "^14.6.0",
     "graphql-tag": "^2.10.3",
